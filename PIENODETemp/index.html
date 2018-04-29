@@ -1,0 +1,1962 @@
+<script src="https://netpie.io/microgear.js"></script>
+<script src='./temperatureMap.js'></script>
+
+<script src="jquery.min.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="http://static.pureexample.com/js/flot/excanvas.min.js"></script><![endif]-->
+<script type="text/javascript" src="http://static.pureexample.com/js/flot/jquery.flot.min.js"></script>
+<script type="text/javascript" src="http://static.pureexample.com/js/flot/jquery.flot.time.js"></script>   
+<script type="text/javascript" src="http://static.pureexample.com/js/flot/jquery.flot.axislabels.js"></script>
+ 
+
+<script>
+//Deployment Secret : tM7WkTS8uImTDdQy26oYjFjGy
+var nitrate;
+var netpiepic =0;
+var tempIoT1,tempIoT2,tempIoT3,tempIoT4,tempIoT5,tempIoT6,tempIoT7,tempIoT8,tempIoT9,tempIoT10,tempIoT11;
+
+var tempIoT1a,tempIoT2a,tempIoT3a,tempIoT4a,tempIoT5a,tempIoT6a,tempIoT7a,tempIoT8a,tempIoT9a,tempIoT10a,tempIoT11a;
+var tempIoT1b,tempIoT2b,tempIoT3b,tempIoT4b,tempIoT5b,tempIoT6b,tempIoT7b,tempIoT8b,tempIoT9b,tempIoT10b,tempIoT11b;
+var tempIoT1c,tempIoT2c,tempIoT3c,tempIoT4c,tempIoT5c,tempIoT6c,tempIoT7c,tempIoT8c,tempIoT9c,tempIoT10c,tempIoT11c;
+var tempIoT1d,tempIoT2d,tempIoT3d,tempIoT4d,tempIoT5d,tempIoT6d,tempIoT7d,tempIoT8d,tempIoT9d,tempIoT10d,tempIoT11d;
+
+ const APPKEY = 'xxxxxxxxxxxxxxxxxx';
+	const APPSECRET ='yyyyyyyyyyyyyyyyyyyy';
+	const APPID = 'zzzz';
+var refmoisture=0;
+var sensitivity= -1;
+
+ 
+
+
+
+    var microgear = Microgear.create({
+        gearkey: APPKEY,
+        gearsecret: APPSECRET,
+		alias:"maejoHTML"
+    });
+
+	
+	
+	
+    microgear.on('message',function(topic,msg) {
+	console.log(topic+'   '+msg);
+ 	if (netpiepic ==1)
+	{
+	document.getElementById("netpie").style.backgroundImage="url(netpie50.png)";
+	netpiepic=0;
+	}
+	else
+	{
+	netpiepic=1;
+	document.getElementById("netpie").style.backgroundImage="url(netpie75.png)";
+	}
+	
+
+		 if (topic == '/tmec/PIENODEF3P1'){
+	//document.getElementById("name1").style.fontFamily = "Arial Black";
+	 var res = msg.split(",");
+	
+	//document.getElementById("name9").innerHTML= msg;
+	//document.getElementById("name1").innerHTML= res[0];
+	//tempIoT1=res[2];
+	//document.getElementById("name2").innerHTML= res[2];
+	//tempIoT1=res[2];
+	//document.getElementById("tmec1").innerHTML= res[3];
+	tempIoT1=res[3];
+	//document.getElementById("name2").innerHTML= res[1];
+	//tempIoT2=res[1];
+	//document.getElementById("name3").innerHTML= res[2];
+	//tempIoT3=res[2];
+	//document.getElementById("name4").innerHTML= res[3];
+	//tempIoT4=res[3];
+	//tempIoT1=refmoisture-sensitivity*res[1];
+	//msg=tempIoT1;
+	
+	
+	
+	
+	}
+	
+	 if (topic == '/tmec/PIENODEF3P2'){
+	//document.getElementById("name1").style.fontFamily = "Arial Black";
+	 var res = msg.split(",");
+	
+	//document.getElementById("name9").innerHTML= msg;
+//document.getElementById("tmec2").innerHTML= res[3];
+	tempIoT2=res[3];
+	//document.getElementById("name2").innerHTML= res[1];
+	//tempIoT2=res[1];
+	//document.getElementById("name3").innerHTML= res[2];
+	//tempIoT3=res[2];
+	//document.getElementById("name4").innerHTML= res[3];
+	//tempIoT4=res[3];
+	//tempIoT1=refmoisture-sensitivity*res[1];
+	//msg=tempIoT1;
+	
+	
+	
+	
+	
+	}
+	
+	
+	 if (topic == '/tmec/PIENODEF3P3'){
+	//document.getElementById("name1").style.fontFamily = "Arial Black";
+	 var res = msg.split(",");
+	
+	//document.getElementById("name9").innerHTML= msg;
+//document.getElementById("tmec3").innerHTML= res[3];
+	tempIoT3=res[3];
+	//document.getElementById("name2").innerHTML= res[1];
+	//tempIoT2=res[1];
+	//document.getElementById("name3").innerHTML= res[2];
+	//tempIoT3=res[2];
+	//document.getElementById("name4").innerHTML= res[3];
+	//tempIoT4=res[3];
+	//tempIoT1=refmoisture-sensitivity*res[1];
+	//msg=tempIoT1;
+	
+	
+	
+	
+	}
+	
+	 if (topic == '/tmec/PIENODEF3P4'){
+	//document.getElementById("name1").style.fontFamily = "Arial Black";
+	 var res = msg.split(",");
+	
+	//document.getElementById("name9").innerHTML= msg;
+document.getElementById("tmec4").innerHTML= res[3];
+	tempIoT4=res[3];
+	//document.getElementById("name2").innerHTML= res[1];
+	//tempIoT2=res[1];
+	//document.getElementById("name3").innerHTML= res[2];
+	//tempIoT3=res[2];
+	//document.getElementById("name4").innerHTML= res[3];
+	//tempIoT4=res[3];
+	//tempIoT1=refmoisture-sensitivity*res[1];
+	//msg=tempIoT1;
+	
+	
+	
+	
+	}
+	
+	if (topic == '/tmec/PIENODEF3P5'){
+	//document.getElementById("name1").style.fontFamily = "Arial Black";
+	 var res = msg.split(",");
+	
+	//document.getElementById("name9").innerHTML= msg;
+document.getElementById("tmec5").innerHTML= res[3];
+	tempIoT5=res[3];
+	//document.getElementById("name2").innerHTML= res[1];
+	//tempIoT2=res[1];
+	//document.getElementById("name3").innerHTML= res[2];
+	//tempIoT3=res[2];
+	//document.getElementById("name4").innerHTML= res[3];
+	//tempIoT4=res[3];
+	//tempIoT1=refmoisture-sensitivity*res[1];
+	//msg=tempIoT1;
+	
+	
+	
+	
+	}
+	
+	
+	if (topic == '/tmec/PIENODEF3P6'){
+	//document.getElementById("name1").style.fontFamily = "Arial Black";
+	 var res = msg.split(",");
+	
+	//document.getElementById("name9").innerHTML= msg;
+document.getElementById("tmec6").innerHTML= res[3];
+	tempIoT6=res[3];
+	//document.getElementById("name2").innerHTML= res[1];
+	//tempIoT2=res[1];
+	//document.getElementById("name3").innerHTML= res[2];
+	//tempIoT3=res[2];
+	//document.getElementById("name4").innerHTML= res[3];
+	//tempIoT4=res[3];
+	//tempIoT1=refmoisture-sensitivity*res[1];
+	//msg=tempIoT1;
+	
+	
+	
+	
+	}
+	
+	if (topic == '/tmec/PIENODEF3P7'){
+	//document.getElementById("name1").style.fontFamily = "Arial Black";
+	 var res = msg.split(",");
+	
+	//document.getElementById("name9").innerHTML= msg;
+document.getElementById("tmec7").innerHTML= res[3];
+	tempIoT7=res[3];
+	//document.getElementById("name2").innerHTML= res[1];
+	//tempIoT2=res[1];
+	//document.getElementById("name3").innerHTML= res[2];
+	//tempIoT3=res[2];
+	//document.getElementById("name4").innerHTML= res[3];
+	//tempIoT4=res[3];
+	//tempIoT1=refmoisture-sensitivity*res[1];
+	//msg=tempIoT1;
+	
+	
+	
+	
+	}
+	
+
+	
+	
+	
+
+	 
+	
+    });
+
+    microgear.on('connected', function() {
+    	   microgear.subscribe("/PIENODEF3P1");
+	  microgear.subscribe("/PIENODEF3P2");
+	   microgear.subscribe("/PIENODEF3P3");
+	   microgear.subscribe("/PIENODEF3P4");
+	  microgear.subscribe("/PIENODEF3P5");
+	   microgear.subscribe("/PIENODEF3P6");
+	   microgear.subscribe("/PIENODEF3P7");
+		
+		
+		
+		
+		//document.getElementById("data").innerHTML = "NETPIE";
+		//document.getElementById("data").style.backgroundImage="url(Tlogo.png)"
+	//	var ratio = window.devicePixelRatio || 1;
+	//	 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    //    document.getElementById("imagedata").style.left = screen.width-1100;
+    });
+
+    microgear.on('present', function(event) {
+        console.log(event);
+    });
+
+   
+
+    microgear.resettoken(function(err) {
+        microgear.connect(APPID);
+    });
+
+	
+  
+ var data1 = [];
+	var data2 = [];
+	 var data3 = [];
+	var data4 = [];
+	 var data5 = [];
+	var data6 = [];
+	 var data7 = [];
+	var data8 = [];
+	 var data9 = [];
+	var data10 = [];
+	
+	var temp1 = [];
+	var temp2 = [];
+	 var temp3 = [];
+	var temp4 = [];
+	var temp5 = [];
+	 var temp6 = [];
+	var temp7 = [];
+	var temp8 = [];
+	 var temp9 = [];
+var temp10 = [];
+	 
+	
+var dataset;
+var totalPoints = 100;
+var updateInterval = 1000;
+//var now = new Date().getTime();
+//now=now-220*1000;
+var maxy=25; 
+var miny=25; 
+ //var time=now;
+//var now = new Date().getTime();
+//	var time=now;
+function GetData() {
+   data1.shift();
+     data2.shift();
+	  data3.shift();
+     data4.shift();
+	  data5.shift();
+     data6.shift();
+	  data7.shift();
+     data8.shift();
+	  data9.shift();
+     data10.shift();
+	var now = new Date().getTime();
+	var time=now;
+	 //now=now-100*1000;
+	 
+	 //var temp1,temp2,temp3,temp4,temp5,temp6,temp7,temp8,temp9,temp10;
+    while (data1.length < totalPoints) {     
+        var y = Math.random() * 100;
+	
+	 var date = new Date(time);
+			 
+            //  document.getElementById("tmec1").innerHTML = date;
+	
+         temp1 = [now += (updateInterval), tempIoT1];
+	     time = time+updateInterval;
+	   
+	    var date = new Date(time);
+			 
+          //    document.getElementById("tmec2").innerHTML = date;
+	   
+         temp2 = [time, tempIoT2];
+	  	 temp3 = [time, tempIoT3];
+         temp4 = [time, tempIoT4]
+		 temp5 = [time, tempIoT5];
+         temp6 = [time, tempIoT6];
+		 temp7 = [time, tempIoT7];
+        temp8 = [time, tempIoT8];
+		 temp9 = [time, tempIoT9];
+        temp10 = [time, tempIoT10];
+		 
+	if (tempIoT1 > maxy)  { maxy = tempIoT1*1.1; }
+	if (tempIoT1 < miny) { miny =  (tempIoT1*0.9);}
+	  
+    if (tempIoT2 > maxy)  { maxy = tempIoT2*1.1; }
+	if (tempIoT2 < miny) { miny =  (tempIoT2*0.9);}
+
+if (tempIoT3 > maxy)  { maxy = tempIoT3*1.1; }
+	if (tempIoT3 < miny) { miny =  (tempIoT3*0.9);}
+if (tempIoT4 > maxy)  { maxy = tempIoT4*1.1; }
+	if (tempIoT4 < miny) { miny =  (tempIoT4*0.9);}
+if (tempIoT5 > maxy)  { maxy = tempIoT5*1.1; }
+	if (tempIoT5 < miny) { miny =  (tempIoT5*0.9);}
+if (tempIoT6 > maxy)  { maxy = tempIoT6*1.1; }
+	if (tempIoT6 < miny) { miny =  (tempIoT6*0.9);}
+if (tempIoT7 > maxy)  { maxy = tempIoT7*1.1; }
+	if (tempIoT7 < miny) { miny =  (tempIoT7*0.9);}
+if (tempIoT8 > maxy)  { maxy = tempIoT8*1.1; }
+	if (tempIoT8 < miny) { miny =  (tempIoT8*0.9);}	
+
+if (tempIoT9 > maxy)  { maxy = tempIoT9*1.1; }
+	if (tempIoT9 < miny) { miny =  (tempIoT9*0.9);}
+	
+	if (tempIoT10 > maxy)  { maxy = tempIoT10*1.1; }
+	if (tempIoT10 < miny) { miny =  (tempIoT10*0.9);}
+	
+		 
+		 
+        data1.push(temp1);
+		data2.push(temp2);
+		 data3.push(temp3);
+		data4.push(temp4);
+		 data5.push(temp5);
+		data6.push(temp6);
+		 data7.push(temp7);
+		data8.push(temp8);
+		 data9.push(temp9);
+		data10.push(temp10);
+		
+    }
+	
+
+	
+	
+	
+}
+
+var options = {
+    series: {
+        lines: {
+            show: true,
+            lineWidth: 5,
+            fill: false
+        }
+    },
+    xaxis: {
+        mode: "time",
+        tickSize: [10, "second"],
+        tickFormatter: function (time, axis) {
+		     
+           // var date = new Date(v-100*1000);
+			 var date = new Date(time);
+			//var date = Date(date2);
+            //  document.getElementById("tmec3").innerHTML = date.getSeconds();
+            if (date.getSeconds() % 20 == 0) {
+                var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+                var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+                var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+            //   document.getElementById("tmec4").innerHTML = hours + ":" + minutes+ ":" + seconds;
+                return hours + ":" + minutes+ ":" + seconds;
+            } else {
+                return "";
+            }
+        },
+        axisLabel: "Time",
+        axisLabelUseCanvas: true,
+        axisLabelFontSizePixels: 12,
+        axisLabelFontFamily: 'Verdana, Arial',
+        axisLabelPadding: 10
+    },
+    yaxis: {
+        min: miny,
+        max: maxy,        
+        tickSize: 2,
+        tickFormatter: function (v, axis) {
+            if (v % 2 == 0) {
+                return v + " ";
+            } else {
+                return "";
+            }
+        },
+        axisLabel: "Temp (celcius)",
+        axisLabelUseCanvas: true,
+        axisLabelFontSizePixels: 12,
+        axisLabelFontFamily: 'Verdana, Arial',
+        axisLabelPadding: 6
+    },
+    legend: {        
+        labelBoxBorderColor: "#fff"
+    },
+    grid: {                
+        backgroundColor: "#000000",
+        tickColor: "#008040"
+    }
+};
+   var height = 1000;
+        var width = 1000;
+		
+  
+  function run () {
+  var  rst = [];
+  var offsety=100;
+  var offsety2=110;
+            var can0 = document.getElementById("cns0"),
+                ctx0 = can0.getContext("2d"),
+                drw0 = new TemperatureMap(ctx0),
+                can1 = document.getElementById("cns1"),
+                ctx1 = can1.getContext("2d"),
+                drw1 = new TemperatureMap(ctx1),
+                can2 = document.getElementById("cns2"),
+                ctx2 = can2.getContext("2d"),
+                drw2 = new TemperatureMap(ctx2),
+                can3 = document.getElementById("cns3")
+				ctx3 = can3.getContext("2d"),
+                drw3 = new TemperatureMap(ctx3),
+				 can4 = document.getElementById("cns4")
+				ctx4 = can4.getContext("2d"),
+                drw4 = new TemperatureMap(ctx4)
+				
+				;
+
+        //    drw0.setRandomPoints(10, width, height);
+		    rst.push({ x: 100, y: offsety-40, value: tempIoT7 }); 
+		    rst.push({ x: 100, y: offsety+30, value: tempIoT7 });
+		    rst.push({ x: 100, y: offsety+100, value: tempIoT6 });
+		    rst.push({ x: 100, y: offsety+170, value: tempIoT5 });
+		    rst.push({ x: 100, y: offsety+240, value: tempIoT5 });
+			rst.push({ x: 100, y: offsety+310, value: tempIoT4 });
+			rst.push({ x: 100, y: offsety+380, value: tempIoT4 });
+		    rst.push({ x: 300, y: offsety-40+offsety2, value: tempIoT7 }); 
+		    rst.push({ x: 300, y: offsety+30+offsety2, value: tempIoT7 });
+		    rst.push({ x: 300, y: offsety+100+offsety2, value: tempIoT6 });
+		    rst.push({ x: 300, y: offsety+170+offsety2, value: tempIoT5 });
+		    rst.push({ x: 300, y: offsety+240+offsety2, value: tempIoT5 });
+			rst.push({ x: 300, y: offsety+310+offsety2, value: tempIoT4 });
+			rst.push({ x: 300, y: offsety+380+offsety2, value: tempIoT4 });
+			//rst.push({ x: 150, y: 25, value: tempIoT5a });
+			//rst.push({ x: 450, y: 25, value: tempIoT5b });
+			//rst.push({ x: 700, y: 100, value: tempIoT1c });
+		    //rst.push({ x: 700, y: 300, value: tempIoT2c });
+			//rst.push({ x: 700, y: 500, value: tempIoT3c });
+			//rst.push({ x: 700, y: 700, value: tempIoT4c });
+		//	rst.push({ x: 1000, y: 100, value: tempIoT1d });
+		 //   rst.push({ x: 1000, y: 300, value: tempIoT2d });
+		//	rst.push({ x: 1000, y: 500, value: tempIoT3d });
+		//	rst.push({ x: 1000, y: 700, value: tempIoT4d });
+
+
+			
+		//	console.log(rst);
+		   drw0.setPoints(rst, width, height);
+		  //  drw0.setPoints([200 100 5], width, height);
+		   
+		  //  drw0.setRandomPoints(10, width, height);
+		  
+          // drw0.drawLow(5, 10, false, function () { drw0.drawPoints();});
+
+           // drw1.setPoints(drw0.points, width, height);
+            drw0.drawFull(true, function () { drw0.drawPoints(); });
+
+			rst = [];
+			  rst.push({ x: 100, y: 150, value: tempIoT7});
+			//   rst.push({ x: 100, y: 200, value: tempIoT2a });
+		   
+			  rst.push({ x: 300, y: 150+offsety2, value: tempIoT7 });
+			   rst.push({ x: 500, y: 150+offsety2+offsety2, value: tempIoT7 });
+			 //   rst.push({ x: 700, y: 100, value: tempIoT1d });
+			//    rst.push({ x: 400, y: 200, value: tempIoT2b });
+			rst.push({ x: 360, y: 0, value: tempIoT7});
+			rst.push({ x: 560, y: 0+offsety2, value: tempIoT7 });
+			rst.push({ x: 760, y: 0+offsety2+offsety2, value: tempIoT7 });
+			//rst.push({ x: 750, y: 0, value: tempIoT5d });
+		  //  rst.push({ x: 200, y: 0, value: tempIoT5b });
+		 //   rst.push({ x: 200, y: 100, value: tempIoT6b });
+		//	rst.push({ x: 200, y: 200, value: tempIoT7b });
+		//	rst.push({ x: 200, y: 300, value: tempIoT8b });
+			
+			  drw1.setPoints(rst, width, height);
+			
+			   drw1.drawFull(true, function () { drw1.drawPoints(); });
+			rst = [];
+			var offfsetx=200;
+		/*	rst.push({ x: 300, y: offsety-40+offsety2, value: tempIoT1a }); 
+		    rst.push({ x: 300, y: offsety+30+offsety2, value: tempIoT1a });
+		    rst.push({ x: 300, y: offsety+100+offsety2, value: tempIoT1a });
+		    rst.push({ x: 300, y: offsety+170+offsety2, value: tempIoT1a });
+		    rst.push({ x: 300, y: offsety+240+offsety2, value: tempIoT2a });
+			rst.push({ x: 300, y: offsety+310+offsety2, value: tempIoT3a });
+			rst.push({ x: 300, y: offsety+380+offsety2, value: tempIoT4a });
+			
+			rst.push({ x: 300+offsetx, y: offsety-40+2*offsety2, value: tempIoT1a }); 
+		    rst.push({ x: 300+offsetx, y: offsety+30+2*offsety2, value: tempIoT1a });
+		    rst.push({ x: 300+offsetx, y: offsety+100+2*offsety2, value: tempIoT1a });
+		    rst.push({ x: 300+offsetx, y: offsety+170+2*offsety2, value: tempIoT1a });
+		    rst.push({ x: 300+offsetx, y: offsety+240+2*offsety2, value: tempIoT2a });
+			rst.push({ x: 300+offsetx, y: offsety+310+2*offsety2, value: tempIoT3a });
+			rst.push({ x: 300+offsetx, y: offsety+380+2*offsety2, value: tempIoT4a });
+		*/	
+			
+			rst.push({ x: 100, y: offsety-40, value: tempIoT7 }); 
+		    rst.push({ x: 100, y: offsety+30, value: tempIoT7 });
+		    rst.push({ x: 100, y: offsety+100, value: tempIoT6 });
+		    rst.push({ x: 100, y: offsety+170, value: tempIoT5 });
+		    rst.push({ x: 100, y: offsety+240, value: tempIoT5 });
+			rst.push({ x: 100, y: offsety+310, value: tempIoT4 });
+			rst.push({ x: 100, y: offsety+380, value: tempIoT4 });
+		    rst.push({ x: 300, y: offsety-40+offsety2, value: tempIoT7 }); 
+		    rst.push({ x: 300, y: offsety+30+offsety2, value: tempIoT7 });
+		    rst.push({ x: 300, y: offsety+100+offsety2, value: tempIoT6 });
+		    rst.push({ x: 300, y: offsety+170+offsety2, value: tempIoT5 });
+		    rst.push({ x: 300, y: offsety+240+offsety2, value: tempIoT5 });
+			rst.push({ x: 300, y: offsety+310+offsety2, value: tempIoT4 });
+			rst.push({ x: 300, y: offsety+380+offsety2, value: tempIoT4 });
+			
+			
+			
+            drw2.setPoints(rst, width, height);
+            drw2.drawFull(true, function () { drw2.drawPoints(); });
+			
+			rst = [];
+			rst.push({ x: 100, y: offsety-40+260, value: tempIoT7 }); 
+		    rst.push({ x: 100, y: offsety+30+260, value: tempIoT7 });
+		    rst.push({ x: 100, y: offsety+100+260, value: tempIoT6 });
+		    rst.push({ x: 100, y: offsety+170+260, value: tempIoT5 });
+		    rst.push({ x: 100, y: offsety+240+260, value: tempIoT5 });
+			rst.push({ x: 100, y: offsety+310+260, value: tempIoT4 });
+			rst.push({ x: 100, y: offsety+380+260, value: tempIoT4 });
+		    rst.push({ x: 350, y: offsety-40+offsety2, value: tempIoT7 }); 
+		    rst.push({ x: 350, y: offsety+30+offsety2, value: tempIoT7 });
+		    rst.push({ x: 350, y: offsety+100+offsety2, value: tempIoT6 });
+		    rst.push({ x: 350, y: offsety+170+offsety2, value: tempIoT5 });
+		    rst.push({ x: 350, y: offsety+240+offsety2, value: tempIoT5 });
+			rst.push({ x: 350, y: offsety+310+offsety2, value: tempIoT4 });
+			rst.push({ x: 350, y: offsety+380+offsety2, value: tempIoT4 });
+			
+			
+						
+            drw3.setPoints(rst, width, height);
+            
+			drw3.drawFull(true, function () { drw3.drawPoints(); });
+		/*	
+			rst = [];
+			 rst.push({ x: 100, y: 100, value: tempIoT1d });
+		    rst.push({ x: 100, y: 200, value: tempIoT2d });
+			rst.push({ x: 100, y: 300, value: tempIoT3d });
+			rst.push({ x: 100, y: 400, value: tempIoT4d });
+		 	rst.push({ x: 150, y: 0, value: tempIoT5d });
+		    rst.push({ x: 150, y: 100, value: tempIoT6d });
+			rst.push({ x: 150, y: 200, value: tempIoT7d });
+			rst.push({ x: 150, y: 300, value: tempIoT8d });
+			
+						
+            drw4.setPoints(rst, width, height);
+            
+			drw4.drawFull(true, function () { drw4.drawPoints(); });
+			
+		*/	
+			
+        }
+
+
+
+$(document).ready(function () {
+    GetData();
+   
+   dataset = [
+        { label: "ID=1", data: data1},
+        { label: "ID=2",data: data2},
+		 { label: "ID=3", data: data3},
+        { label: "ID=4",data: data4},
+		 { label: "ID=5", data: data5},
+        { label: "ID=6",data: data6},
+		 { label: "ID=7", data: data7},
+        { label: "ID=8",data: data8},
+		 { label: "ID=9", data: data9},
+        { label: "ID=10",data: data10},
+    ];
+   
+document.getElementById("flotcontainer").style.width = screen.width-700;
+ var plot=   $.plot($("#flotcontainer"), dataset, options);
+
+    function update() {
+        GetData();
+        run();
+		 var axe1 = plot.getAxes();
+    axe1.yaxis.options.min = miny;
+	
+	 var axe2 = plot.getAxes();
+    axe2.yaxis.options.max = maxy;
+		
+		
+ plot.setData([
+  {
+    label: 'T1',
+    data: data1,
+	
+  },
+  {
+    label: 'T2',
+    data: data2
+  },
+   {
+    label: 'T3',
+    data: data3,
+	
+  },
+  {
+    label: 'T4',
+    data: data4
+  },
+   {
+    label: 'T5',
+    data: data5,
+	
+  },
+  {
+    label: 'T6',
+    data: data6
+  },
+   {
+    label: 'T7',
+    data: data7,
+	
+  },
+  {
+    label: 'T8',
+    data: data8
+  },
+   {
+    label: 'T9',
+    data: data9,
+	
+  },
+  {
+    label: 'T10',
+    data: data10
+  },
+]);               
+   plot.setupGrid();
+    plot.draw();
+		
+		
+     //   $.plot($("#flotcontainer"), dataset, options)
+        setTimeout(update, updateInterval);
+    }
+
+    update();
+	
+	});
+	
+	
+	</script>
+
+
+
+
+
+   
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+	
+	<style type="text/css">
+#data {
+  
+   
+  height: 180px;
+  width: 100%;
+  text-align :center;
+
+ }
+#imagedata {
+ 
+    margin: auto;
+   vertical-align:middle
+}
+	
+	
+	
+#container {
+  height: 180px;
+  width:100%;
+   margin: auto;
+
+  position: relative;
+}
+#image {
+  position: absolute;
+    top: 0; bottom:0; left: 0; right:0;
+   
+}
+
+#tmec1 {
+  background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 85px;
+  top: 42px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#tmec2 {
+   background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 217px;
+  top: 42px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+#tmec3 {
+   background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 349px;
+  top: 42px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+#tmec4 {
+   background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 260px;
+  top: 930px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+#tmec5 {
+    background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 260px;
+  top: 830px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+#tmec6 {
+    background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 260px;
+  top: 730px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+#tmec7 {
+    background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 260px;
+  top: 620px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+#tmec8 {
+     background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 343px;
+  top: 452px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+
+#tmec9 {
+      background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 475px;
+  top: 452px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+#tmec10 {
+      background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 607px;
+  top: 452px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+#tmec11 {
+      background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 475px;
+  top: 452px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+#tmec12 {
+      background-image: url('warn100.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  left: 607px;
+  top: 452px;
+  height: 100px;
+  width: 50px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+
+
+
+#update1 {
+  background-image: url('updateb75.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 100px;
+  top: 235px;
+  height: 50px;
+  width: 30px;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#update2 {
+  background-image: url('updateb75.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 235px;
+  top: 235px;
+  height: 50px;
+  width: 30px;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#update3 {
+  background-image: url('updateb75.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 365px;
+  top: 235px;
+  height: 50px;
+  width: 30px;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#update4 {
+  background-image: url('updateb75.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 495px;
+  top: 235px;
+  height: 50px;
+  width: 30px;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#update5 {
+  background-image: url('updateb75.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 625px;
+  top: 235px;
+  height: 50px;
+  width: 30px;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#update6 {
+      background-image: url('updateb75.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 95px;
+  top: 300px;
+  height: 50px;
+  width: 30px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+#update7 {
+      background-image: url('updateb75.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 225px;
+  top: 300px;
+  height: 50px;
+  width: 30px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+#update8 {
+      background-image: url('updateb75.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 355px;
+  top: 300px;
+  height: 50px;
+  width: 30px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+
+#update9 {
+      background-image: url('updateb75.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 485px;
+  top: 300px;
+  height: 50px;
+  width: 30px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+#update10 {
+  background-image: url('updateb75.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+ left: 620px;
+  top: 300px;
+  height: 50px;
+  width: 30px;
+
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+#netpie {
+  background-image: url('netpie75.png');
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+ left: 0px;
+  top: 0px;
+  height: 74px;
+  width: 30px;
+
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+
+#name1 {
+  
+  
+  position: absolute;
+  color: black;
+  font-size: 44px;
+  font-weight: bold;
+  left: 43px;
+  top: 90px;
+  height: 35px;
+  width: 100px;
+  color: #000;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#name2 {
+ 
+  
+  position: absolute;
+  color: black;
+  font-size: 44px;
+  font-weight: bold;
+  left: 38px;
+  top: 176px;
+  height: 35px;
+  width: 150px;
+  color: #000;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#name3 {
+  
+  
+  position: absolute;
+  color: black;
+  font-size: 44px;
+  font-weight: bold;
+  left: 55px;
+  top: 260px;
+  height: 35px;
+  width: 150px;
+  color: #000;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#name4 {
+
+  
+  position: absolute;
+  color: black;
+  font-size: 44px;
+  font-weight: bold;
+  left: 92px;
+  top: 348px;
+  height: 35px;
+  width: 158px;
+  color: #000;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#name5 {
+ 
+  
+  position: absolute;
+  color: black;
+  font-size: 44px;
+  font-weight: bold;
+  left: 455px;
+  top: 150px;
+  height: 35px;
+  width: 158px;
+  color: #000;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#name6 {
+    
+  
+  position: absolute;
+  color: black;
+  font-size: 44px;
+  font-weight: bold;
+   left: 455px;
+  top: 228px;
+  
+  height: 50px;
+  width: 158px;
+
+ 
+  
+  color: #000;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+#name7 {
+    
+  
+  position: absolute;
+  color: black;
+  font-size: 44px;
+  font-weight: bold;
+   left: 455px;
+  top: 312px;
+  height: 50px;
+  width: 158px;
+
+ 
+  
+  color: #000;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+#name8 {
+   
+  
+  position: absolute;
+  color: black;
+  font-size: 44px;
+  font-weight: bold;
+   left: 455px;
+  top: 403px;
+  height: 50px;
+  width: 158px;
+ 
+  
+  color: #000;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+#name9 {
+    
+ 
+
+     
+  
+  position: absolute;
+  color: black;
+  font-size: 44px;
+  font-weight: bold;
+  left: 390px;
+ top: 25px;
+  height: 50px;
+  width: 30px;
+
+ 
+  
+ 
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+#name10 {
+  
+ 
+  position: absolute;
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+  left: 491px;
+ top: 39px;
+  height: 60px;
+  width: 35px;
+
+ 
+  
+  color: #3F51B5;
+ 
+  padding: 0 60px;
+  margin: 20px;
+  display: flex;
+ align-items: center;
+ 
+
+  }
+
+
+#nameb1 {
+  
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 110px;
+  top: 355px;
+  height: 35px;
+  width: 58px;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#nameb2 {
+ 
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 95px;
+  top: 390px;
+  height: 35px;
+  width: 58px;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#nameb3 {
+  
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 103px;
+  top: 440px;
+  height: 35px;
+  width: 58px;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#nameb4 {
+
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 125px;
+  top: 480px;
+  height: 35px;
+  width: 58px;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#nameb5 {
+ 
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  left: 275px;
+  top: 350px;
+  height: 35px;
+  width: 58px;
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+
+}
+#nameb6 {
+    
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+   left: 300px;
+  top: 387px;
+  
+  height: 50px;
+  width: 30px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+#nameb7 {
+    
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+   left: 295px;
+  top: 430px;
+  height: 50px;
+  width: 30px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+#nameb8 {
+   
+  
+  position: absolute;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+   left: 260px;
+  top: 470px;
+  height: 50px;
+  width: 30px;
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+
+
+#nameb9 {
+    
+  
+  position: absolute;
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+  left: 206px;
+ top: 405px;
+  height: 50px;
+  width: 30px;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+#nameb10 {
+ 
+  
+  position: absolute;
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+ left: 205px;
+  top: 538px;
+  height: 50px;
+  width: 30px;
+
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+}
+
+
+#flotcontainer {
+
+ position: absolute;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  left: 700px;
+  top: 450px;
+  height: 500px;
+  width: 100%;
+
+ 
+  
+  color: #FFF;
+  text-align: center;
+  padding: 0 20px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
+  
+}
+#legendContainer {
+    left: 0px;
+    top: 650px;
+   position: absolute;
+   
+}
+ 
+</style>
+
+<style>
+body {
+	text-align: center;
+}
+/* SWITCH */
+.cube-switch {
+    border-radius:10px;
+    border:1px solid rgba(0,0,0,0.4);
+    box-shadow: 0 0 8px rgba(0,0,0,0.6), inset 0 100px 50px rgba(255,255,255,0.1);
+    /* Prevents clics on the back */
+    cursor:default;    
+    display: none;
+    height: 75px;
+    position: relative;
+    overflow:hidden;
+    /* Prevents clics on the back */
+    pointer-events:none;
+    width: 75px;
+    white-space: nowrap;
+    background:#333;
+	margin: 15px;
+}
+/* The switch */
+.cube-switch .switch {
+    border:1px solid rgba(0,0,0,0.6);
+    border-radius:0.7em;
+    box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    inset 0 -7px 0 rgba(0,0,0,0.2),
+    inset 0 50px 10px rgba(0,0,0,0.2),
+    0 1px 0 rgba(255,255,255,0.2);
+    display:block;
+    width: 60px;
+    height: 60px;
+    margin-left:-30px;
+    margin-top:-30px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+ 
+    background:#666;
+    transition: all 0.2s ease-out;
+    /* Allows click */
+    cursor:pointer;
+    pointer-events:auto;
+}
+/* SWITCH Active State */
+.cube-switch.active {
+    /*background:#222;
+    box-shadow:
+    0 0 5px rgba(0,0,0,0.5),
+    inset 0 50px 50px rgba(55,55,55,0.1);*/
+}
+.cube-switch.active .switch {
+    background:#333;
+    box-shadow:
+    inset 0 6px 0 rgba(255,255,255,0.1),
+    inset 0 7px 0 rgba(0,0,0,0.2),
+    inset 0 -50px 10px rgba(0,0,0,0.1),
+    0 1px 0 rgba(205,205,205,0.1);
+}
+.cube-switch.active:after,
+.cube-switch.active:before {
+    background:#333; 
+    box-shadow:
+    0 1px 0 rgba(255,255,255,0.1),
+    inset 1px 2px 1px rgba(0,0,0,0.5),
+    inset 3px 6px 2px rgba(200,200,200,0.1),
+    inset -1px -2px 1px rgba(0,0,0,0.3);
+}
+.cube-switch.active .switch:after,
+.cube-switch.active .switch:before {
+    background:#222;
+    border:none;
+    margin-top:0;
+    height:1px;
+}
+.cube-switch .switch-state {
+    display: block;
+    position: absolute;
+    left: 40%;
+    color: #FFF;
+    font-size: .5em;
+    text-align: center;
+}
+/* SWITCH On State */
+.cube-switch .switch-state.on {
+    bottom: 15%;
+}
+/* SWITCH Off State */
+.cube-switch .switch-state.off {
+    top: 15%;
+}
+
+#cns0 {
+ 
+  position: absolute; 
+  left:    -43px;
+  top: 405px;
+ }
+ 
+ #cns1 {
+ 
+  position: absolute; 
+  left:    -43px;
+  top: 315px;
+ }
+ #cns2 {
+ 
+  position: absolute; 
+  left:    155px;
+  top: 515px;
+ }
+ #cns3 {
+ 
+  position: absolute; 
+ left:    355px;
+  top: 365px;
+ }
+ #cns4 {
+ 
+  position: absolute; 
+  left:    -43px;
+  top: 405px;
+ }
+
+
+</style>
+
+
+
+<div id="data">
+
+ <img id="imagedata" src="wimarcfarmlogo.jpg" />
+ 
+</div>
+  <p id="netpie">
+   
+  </p> 
+
+
+ 
+ 
+  
+ 
+  
+  
+ 
+  
+  <div id="flotcontainer"></div>
+  
+    <div id="legendContainer"></div>
+	
+ 
+
+  <p id="tmec4">
+  <p id="tmec5">
+  <p id="tmec6">
+  <p id="tmec7">
+ 
+   
+  </p> 
+
+   
+         
+       <img src='./nectecbuilding.png' style='position: absolute; top:    200px; left:    50px; z-index: -10'/>
+    
+	   <canvas id="cns0" width="900px" height="900px"></canvas>
+        <canvas id="cns1" width="1200px" height="1200px"></canvas>
+        <canvas id="cns2" width="900px" height="900px"  ></canvas>
+   
+        <canvas id="cns3" width="900px" height="900px" ></canvas>
+          <canvas id="cns4" width="900px" height="900px"  ></canvas>    
+       
+    </body>
+</html>
